@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="irvineBeer">
+
+<head>
+	<meta charset="UTF-8">
+
+	<!--Angular 1.5.7-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" crossorigin="anonymous"></script>
+
+	<!--Jquery-->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44= "
+		crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+		crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+
+
+	<link rel="stylesheet" href="./styles.css" />
+
+	<title>Irvine Beer</title>
+</head>
+
+<body ng-controller="breweriesController">
+	<!--add comment Modal-->
+	<div ng-include="'./Modals/addComment.html'"></div>
+	<!--update comment Modal-->
+	<div ng-include="'./Modals/updateComment.html'"></div>
+	<!-- WishList Modal -->
+	<div ng-include="'./Modals/wishlist.html'"></div>
+	<!--Nav bar-->
+	<nav class="navbar navbar-fixed-top" id="navBar">
+		<div class="container-fluid">
+			<div class="col-md-4 navbar-header">
+				<h3 id="headerTitle">Local Beer Picker</h3>
+			</div>
+			<!--zip code filetering-->
+			<div class="col-md-4 zipCodeDiv">
+				<div class="text-center">
+					<label for="zipCode">Zip Code:</label>
+					<input type="number" id="zipCode" ng-model="zipCodeFilter"></input>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<ul class="nav nav-pills pull-right">
+					<li><button class="btn btn-primary">Breweries</button></li>
+					<li><button class="btn btn-primary" ng-click="triggerWishModal()">Wishlist ({{ wishlistNumber }}) </button></li>
+					<li><button class="btn btn-primary">Log In</button></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Wrapping Div-->
+	<div class="container beerBody">
+		<div class="row">
+			<!--Left column (Breweries)-->
+			<div class="col-md-6">
+				<!--Brewery list-->
+				<div class="col-md-6">
+					<h2>Breweries</h2>
+					<div class="buttonSelectors">
+						<ul class="unstyle-list sidebar-nav nav">
+							<li ng-repeat="brewery in breweries | filterByZip : zipCodeFilter"><button ng-click="selectCurrentBrewery(brewery)" class="btn btn-block btn-primary btn-space">{{ brewery.name }}</button></li>
+						</ul>
+					</div>
+				</div>
+				<!--info of Brewery-->
+				<div class="col-md-6" ng-if="currentBrewery != null">
+					<h2>Brewery's Info</h2>
+					<div class="well">
+						<p class="infoP"> <strong> Name:  {{ currentBrewery.name }} </strong> </p>
+						<p class="infoP">Address: {{ currentBrewery.address }}</p>
+						<p class="infoP">Zip: {{ currentBrewery.zip }}</p>
+						<p class="infoP">Rating: <strong> {{ currentBrewery.rating }} </strong> </p>
+
+					</div>
+				</div>
+				<!--Brewery comment section-->
+				<div class="col-md-12" ng-if="currentBrewery != null">
+					<h2>Reviews of {{ currentBrewery.name }} </h2>
+					<div class="well commentSection">
+						<ul class="unstyle-list">
+							<li class="commentList" ng-repeat="breweryComment in currentBrewery.comments">
+								<button class="btn btn-sm btn-danger pull-right" ng-if="breweryComment.userId == userId" ng-click="deleteBreweryComment(breweryComment)">x</button>
+								<button class="btn btn-sm btn-info pull-right" ng-if="breweryComment.userId == userId" ng-click="triggerUpdateBreweryModal(breweryComment)">Update</button>
+								<p class="infoP"> <strong> Title:  {{ breweryComment.title }} </strong> </p>
+								<p class="infoP">{{ breweryComment.content }} </p>
+								<p class="infoP">Rating: <strong> {{ breweryComment.rating }} </strong> </p>
+							</li>
+						</ul>
+					</div>
+					<button class="btn btn-primary pull-right" ng-click="addBreweryToWishlist()">Add to Wishlist</button>
+					<button class="btn btn-primary pull-right" ng-click="triggerAddBreweryModal()">Add Comment</button>
+
+				</div>
+			</div>
+			<!--Right column (Beers)-->
+			<div class="col-md-6">
+				<!--Beer list-->
+				<div class="col-md-6" ng-if="currentBrewery != null">
+					<h2>Beers</h2>
+					<div class="buttonSelectors">
+						<ul class="unstyle-list sidebar-nav nav">
+							<li ng-repeat="beer in currentBrewery.beers"><button ng-click="selectCurrentBeer(beer)" class="btn btn-block btn-primary btn-space">{{ beer.name }}</button></li>
+						</ul>
+					</div>
+				</div>
+				<!--info of Beer-->
+				<div class="col-md-6" ng-if="currentBeer != null">
+					<h2>Beer's Info</h2>
+					<div class="well beerInfo">
+						<p class="infoP"> <strong> Name: {{ currentBeer.name }} </strong> </p>
+						<p class="infoP">Type: {{ currentBeer.type }}</p>
+						<p class="infoP">ABV: {{ currentBeer.ABV }}%</p>
+						<p class="infoP">IBU: {{ currentBeer.IBU }}</p>
+						<p class="infoP">Rating: <strong> {{ currentBeer.rating }} </strong> </p>
+					</div>
+				</div>
+
+				<!--Beer comment section-->
+				<div class="col-md-12" ng-if="currentBeer != null">
+					<h2>Reviews of {{ currentBeer.name }}</h2>
+					<div class="well commentSection">
+						<ul class="unstyle-list">
+							<li class="commentList" ng-repeat="beerComment in currentBeer.comments">
+								<button class="btn btn-sm btn-danger pull-right" ng-if="beerComment.userId == userId" ng-click="deleteBeerComment(beerComment)">x</button>
+								<button class="btn btn-sm btn-info pull-right" ng-if="beerComment.userId == userId" ng-click="triggerUpdateBeerModal(beerComment)">Update</button>
+								<p class="infoP"> <strong> Title: {{ beerComment.title }} </strong> </p>
+								<p class="infoP">{{ beerComment.content }} </p>
+								<p class="infoP">Rating: <strong> {{ beerComment.rating }} </strong> </p>
+							</li>
+						</ul>
+					</div>
+					<button class="btn btn-primary pull-right" ng-click="addBeerToWishlist()">Add to Wishlist</button>
+					<button class="btn btn-primary pull-right" ng-click="triggerAddBeerModal()">Add Comment</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer start-->
+	<div class="footerStart">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="./images/beerLogo2Resized.png" alt="">
+				</div>
+				<div class="col-md-8">
+					<div class="col-md-12 aboutUs ">
+						<ul class="list-inline list-unstyled text-center aboutUsList">
+							<li>About Us</li>
+							<li>Contact Us</li>
+							<li>Privacy Policy</li>
+							<li>Careers</li>
+							<li>Events & Promotions</li>
+							<li>Privacy Policy</li>
+						</ul>
+					</div>
+					<div class="col-md-12 text-center newsLetter">
+						<p><strong>SIGN UP FOR OUR NEWSLETTER</strong></p>
+					</div>
+				
+
+				</div>
+			
+			</div>
+		</div>
+
+	</div>
+	<script src="./Module/breweriesApp.js" type="text/javascript"></script>
+	<script src="./Controllers/breweriesController.js" type="text/javascript"></script>
+
+</body>
+
+</html>

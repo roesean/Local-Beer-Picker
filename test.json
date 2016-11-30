@@ -1,0 +1,170 @@
+[
+    {
+        "$id": "1",
+        "Id": 69,
+        "Text": "Solutions to software design problems that are re-used in real-world app development.",
+        "QuestionId": 27,
+        "Question_Text": "What is a design pattern?"
+    },
+    {
+        "$id": "2",
+        "Id": 70,
+        "Text": "A pattern for designing visual layouts through code.",
+        "QuestionId": 27,
+        "Question_Text": "What is a design pattern?"
+    },
+    {
+        "$id": "3",
+        "Id": 71,
+        "Text": "Build instructions given to programmings, usually by project’s architect.",
+        "QuestionId": 27,
+        "Question_Text": "What is a design pattern?"
+    },
+    {
+        "$id": "4",
+        "Id": 72,
+        "Text": "A .NET framework used in scaffolding.",
+        "QuestionId": 27,
+        "Question_Text": "What is a design pattern?"
+    },
+    {
+        "$id": "5",
+        "Id": 73,
+        "Text": "Four highly popular real-world examples of the four main design patterns.",
+        "QuestionId": 28,
+        "Question_Text": "Gang of Four (GoF) refers to:"
+    },
+    {
+        "$id": "6",
+        "Id": 74,
+        "Text": "The four authors who wrote the book, Design Patterns: Elements of Reusable Object-Oriented Software",
+        "QuestionId": 28,
+        "Question_Text": "Gang of Four (GoF) refers to:"
+    },
+    {
+        "$id": "7",
+        "Id": 75,
+        "Text": "Four large tech corporations that “gang up” on the rest of the industry and impose their design pattern software on the rest of the industry.",
+        "QuestionId": 28,
+        "Question_Text": "Gang of Four (GoF) refers to:"
+    },
+    {
+        "$id": "8",
+        "Id": 76,
+        "Text": "Four design patterns generally considered the foundation for all other patterns.",
+        "QuestionId": 28,
+        "Question_Text": "Gang of Four (GoF) refers to:"
+    },
+    {
+        "$id": "9",
+        "Id": 77,
+        "Text": "False",
+        "QuestionId": 29,
+        "Question_Text": "The 23 patterns presented by the Gang of Four (GoF) are generally considered the foundation for all other patterns."
+    },
+    {
+        "$id": "10",
+        "Id": 78,
+        "Text": "True",
+        "QuestionId": 29,
+        "Question_Text": "The 23 patterns presented by the Gang of Four (GoF) are generally considered the foundation for all other patterns."
+    },
+    {
+        "$id": "11",
+        "Id": 79,
+        "Text": "False",
+        "QuestionId": 30,
+        "Question_Text": "The 23 Gang of Four (GoF) patterns are categorized into 4 groups."
+    },
+    {
+        "$id": "12",
+        "Id": 80,
+        "Text": "True",
+        "QuestionId": 30,
+        "Question_Text": "The 23 Gang of Four (GoF) patterns are categorized into 4 groups."
+    },
+    {
+        "$id": "13",
+        "Id": 81,
+        "Text": "Creational, Manipulatable, Flexible",
+        "QuestionId": 31,
+        "Question_Text": "The 3 groups that the 23 GoF patterns fall into are:"
+    },
+    {
+        "$id": "14",
+        "Id": 82,
+        "Text": "Behavioral, Alterable, Encapsulatable",
+        "QuestionId": 31,
+        "Question_Text": "The 3 groups that the 23 GoF patterns fall into are:"
+    },
+    {
+        "$id": "15",
+        "Id": 83,
+        "Text": "Behavioral, Structural, Manipulatable",
+        "QuestionId": 31,
+        "Question_Text": "The 3 groups that the 23 GoF patterns fall into are:"
+    },
+    {
+        "$id": "16",
+        "Id": 84,
+        "Text": "Structural, Creational, Behavioral",
+        "QuestionId": 31,
+        "Question_Text": "The 3 groups that the 23 GoF patterns fall into are:"
+    },
+    {
+        "$id": "17",
+        "Id": 85,
+        "Text": "Behavioral",
+        "QuestionId": 32,
+        "Question_Text": "A Singleton falls into which of the 3 main design pattern categories?"
+    },
+    {
+        "$id": "18",
+        "Id": 86,
+        "Text": "Structural",
+        "QuestionId": 32,
+        "Question_Text": "A Singleton falls into which of the 3 main design pattern categories?"
+    },
+    {
+        "$id": "19",
+        "Id": 87,
+        "Text": "Creational",
+        "QuestionId": 32,
+        "Question_Text": "A Singleton falls into which of the 3 main design pattern categories?"
+    },
+    {
+        "$id": "20",
+        "Id": 88,
+        "Text": "A singleton is not a design pattern.",
+        "QuestionId": 32,
+        "Question_Text": "A Singleton falls into which of the 3 main design pattern categories?"
+    },
+    {
+        "$id": "21",
+        "Id": 89,
+        "Text": "False",
+        "QuestionId": 33,
+        "Question_Text": "Inappropriate use of design patterns may unnecessarily raise complexity."
+    },
+    {
+        "$id": "22",
+        "Id": 90,
+        "Text": "True",
+        "QuestionId": 33,
+        "Question_Text": "Inappropriate use of design patterns may unnecessarily raise complexity."
+    },
+    {
+        "$id": "23",
+        "Id": 91,
+        "Text": "False",
+        "QuestionId": 34,
+        "Question_Text": "Certain design patterns may be simplified or eliminated based on the programming language being used."
+    },
+    {
+        "$id": "24",
+        "Id": 92,
+        "Text": "True",
+        "QuestionId": 34,
+        "Question_Text": "Certain design patterns may be simplified or eliminated based on the programming language being used."
+    }
+]

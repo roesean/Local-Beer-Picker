@@ -1,0 +1,51 @@
+<div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">My Wishlist</h4>
+				</div>
+
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h4>My Breweries</h4>
+							<div class="well" ng-if ="wishlistBreweries.length != 0">
+								<ul class="unstyle-list">
+
+									<li ng-repeat="brewery in wishlistBreweries"><button class="btn btn-danger btn-sm pull-right" ng-click="deleteBrewery(brewery)">X</button>
+										<p class="infoP">Name: {{ brewery.name }}</p>
+										<p class="infoP">Address: {{ brewery.address }}</p>
+										<p class="infoP">Zip: {{ brewery.zip }}</p>
+										<p class="infoP">Rating: {{ brewery.rating }}</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<h4>My Beers</h4>
+							<div class="well" ng-if ="wishlistBeers.length != 0">
+								<ul class="unstyle-list">
+
+									<li ng-repeat="beer in wishlistBeers"><button class="btn btn-danger btn-sm pull-right" ng-click="deleteBeer(beer)">X</button>
+										<p class="infoP">Brewery Name: {{ beer.breweryName }}</p>
+										<p class="infoP"> Name: {{ beer.name }}</p>
+										<p class="infoP">Type: {{ beer.type }}</p>
+										<p class="infoP">ABV: {{ beer.ABV }}%</p>
+										<p class="infoP">IBU: {{ beer.IBU }}</p>
+										<p class="infoP">Rating: {{ beer.rating }}</p>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>

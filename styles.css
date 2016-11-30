@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+#navBar{    
+    border-bottom: 1px solid;
+    background-color: #fff;
+}
+
+.beerBody{
+    margin-top: 65px;
+}
+
+.nav-pills{
+    margin-top: 10px;
+
+}
+.unstyle-list{
+    list-style: none;
+}
+
+.myModal{
+    position: static;
+}
+
+.infoP{
+    margin-bottom: 0px;
+}
+
+.beerInfo{
+    margin-bottom: 0px;
+}
+
+.zipCodeDiv{
+    margin: 14px 0;
+}
+
+#headerTitle{
+    font-weight: bold;
+}
+
+.buttonSelectors{
+    height: 170px;
+    overflow: auto;
+}
+
+.commentSection{
+    height: 420px;
+    overflow: auto;
+}
+
+body {
+    /*background-image: url('./images/beerPainting.jpg');*/
+    /*background-image: url('./images/beerPainting.jpg');*/
+    /*background-image: url('./images/beerFlight.jpg');*/
+    /*background-image: url('./images/beerLiquid.jpg');*/
+    background-size: cover;
+    
+}
+
+h2{
+    background: #bac2d1;
+    border-radius: 7px;
+    padding-left: 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+.btn-space{
+        margin-bottom: 2px;
+
+}
+
+.footerStart{
+    margin-top: 70px;
+    background-color: #161970;
+    color: #fff;
+}
+
+.aboutUs{
+    margin-top: 100px;
+    border-bottom: solid 2px #fff;
+}
+
+.aboutUsList{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.newsLetter{
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.commentList{
+    margin-bottom: 10px;
+}
